@@ -1,8 +1,8 @@
-const express = require('express');
-const cors = require('cors');
-const { createClient } = require('@supabase/supabase-js');
-const nodemailer = require('nodemailer');
-const multer = require('multer');
+import express from 'express';
+import cors from 'cors';
+import { createClient } from '@supabase/supabase-js';
+import nodemailer from 'nodemailer';
+import multer from 'multer';
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -177,4 +177,6 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-module.exports = app;
+export default function handler(req, res) {
+  return app(req, res);
+}
